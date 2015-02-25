@@ -14,16 +14,13 @@
 	width:13%;
 	height:100%;
 	position:relative;	/*不加这一条，在chrome下overflow:auto工作不正常*/
-	overflow-y:auto;
-	background: rgb(31,0,104);
+	background: #0288d1;
 }
 
 #pad
 {
-	overflow:scroll;
 	position:relative;
 	float:left;
-	background:#CDCDCD;
 	width:70%;
 	height:100%;
 }
@@ -44,27 +41,28 @@
 #elementList
 {
 	position:relative;
-	/*不加这一条，在chrome下工作不正常*/
+	/*不加这一条，在chrome下overflow:auto工作不正常*/
 	float:left;
-	background: rgb(31,0,104);
+	background:rgb(37,142,205);
 	width:17%;
 	height:100%;
-	overflow-y:auto;
 }
 
-h2
+.sub_item
 {
+	font-size:1.5em;
 	font-weight:normal;
-	margin-left:15px;
+	padding:15px;
 	color: white;
 }
 
-li
+li ul li
 {
 
 	font-weight:lighter;
 	color: white;
 	padding:10px 0px 10px 40px;
+	background: #03a9f4;
 }
 
 ul
@@ -73,10 +71,10 @@ ul
   padding-left:0px;
 }
 
-li:hover
+li ul li:hover
 {
 	font-weight:lighter;
-	background:rgb(62,0,208);
+	background:#b3e5fc;
 	color:white;
 	padding:10px 0px 10px 25px;
 }
@@ -101,5 +99,5 @@ li:hover
 
 .message p
 {
-  margin-left:20px;  
+  margin-left:20px;
 }

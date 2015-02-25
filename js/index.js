@@ -1,7 +1,7 @@
-/*$(document).ready
-(
-	function()
-	{*/
+$(document).ready(function(){
+   $($('#elementKind ul')[0]).hoverAccordion();
+});
+
 
 function onReSize()
 {
@@ -30,8 +30,6 @@ function onReSize()
 	}
 	pcb.refresh();
     document.getElementById('state').innerHTML=''+pcb.state;
-//	$('#pad').attr('width',$('#pad').css('width'));
-//	$('#pad').attr('height',$('#pad').css('height'));
 }
 
 
@@ -39,7 +37,7 @@ function onReSize()
 var canvas=document.getElementById('canvas');
 var con=canvas.getContext('2d');
 var pcb=new PCBmodel(con,20,15,15);
-$('#elementKind ul:eq(0) li:eq(0)').click(function()
+$('#new').click(function()
 {
     var w=$('#create');
     if(w.css('display')==='none') w.css('display','block');
@@ -47,16 +45,16 @@ $('#elementKind ul:eq(0) li:eq(0)').click(function()
 
 });
 canvas.onclick=function(e)
-{om
-	console.log('pos:'+pcb.toLocal(e.offsetX||e.layerX)+','+pcb.toLocal(e.offsetY||e.layerY));
-    var x=pcb.toLocal(e.offsetX||e.layerX);
-    var y=pcb.toLocal(e.offsetY||e.layerY)
-    if(!(pcb.existElement[0]&&pcb.existElement[0].build))
-    {
-        pcb.existElement.unshift(new CeramicsCapacitor());
-    }
-    pcb.existElement[0].build(x,y);
-    pcb.refresh();
+{
+  console.log('pos:'+pcb.toLocal(e.offsetX||e.layerX)+','+pcb.toLocal(e.offsetY||e.layerY));
+  var x=pcb.toLocal(e.offsetX||e.layerX);
+  var y=pcb.toLocal(e.offsetY||e.layerY)
+  if(!(pcb.existElement[0]&&pcb.existElement[0].build))
+  {
+    pcb.existElement.unshift(new CeramicsCapacitor());
+  }
+  pcb.existElement[0].build(x,y);
+  pcb.refresh();
 };
 
 onReSize();
