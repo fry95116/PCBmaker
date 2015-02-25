@@ -1,67 +1,90 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<head>
+	<title>PCBmaker</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./index.css"/>
+	<link rel="stylesheet" type="text/css" href="./component.css"/>
+</head>
+<body style="margin:0px;">
+	<div id="main">
+		<div id="elementKind">
+			<ul>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Pcbmaker : a simple web app to help people design their own Pegboard">
+				<li>
+					<a herf='#'><div class='sub_item'>文件</div></a>
+					<ul>
+						<li><a herf='#new'>新建</a></li>
+						<li>打开</li>
+						<li>保存</li>
+					</ul>
+				</li>
+				<li>
+					<a herf='#'><div class='sub_item'>编辑</div></a>
+					<ul>
+						<li>前进</li>
+						<li>后退</li>
+						<li>页面设置</li>
+					</ul>
+				</li>
+				<li>
+					<a herf='#'><div class='sub_item'>元件</div></a>
+					<ul>
+						<li>文本</li>
+						<li>跳线</li>
+						<li>走线</li>
+						<li>跳线</li>
+						<li>排针</li>
+						<li>排母</li>
+						<li>连接器</li>
+						<li>单列IC</li>
+						<li>双列IC</li>
+						<li>电阻</li>
+						<li>独石电容</li>
+						<li>电解电容</li>
+						<li>电感</li>
+						<li>二极管</li>
+						<li>LED</li>
+						<li>三极管</li>
+						<li>按键</li>
+						<li>自锁开关</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="pad">
+			<canvas id="canvas">
+			Canvas not supported
+			</canvas>
+            <div id="state">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+            </div>
+            <div class="message" id="create">
+                <h2>新建文件</h2>
+                <p>
+                    宽度:
+                    <input type="text">
+                </p>
+                <p>
+                    高度:
+                    <input type="text">
+                </p>
+                <p style="text-align:right">
+					<input type="button" value="确定">
+				</p>
+            </div>
+		</div>
+		<div id="elementList">
+			<div class='sub_item'>已存在的元件</div>
+			<ul>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery.hoveraccordion.js"></script>
+<script src="./js/underscore.js"></script>
+<script src="./js/backbone.js"></script>
 
-    <title>Pcbmaker</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/fry95116/PCBmaker">View on GitHub</a>
-
-          <h1 id="project_title">Pcbmaker</h1>
-          <h2 id="project_tagline">a simple web app to help people design their own Pegboard</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/fry95116/PCBmaker/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/fry95116/PCBmaker/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a id="概述" class="anchor" href="#%E6%A6%82%E8%BF%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>概述:</h3>
-
-<p>一个简单的万能板(洞洞板)设计工具,可以运行在web端,也可以配合node.js运行在本地。</p>
-
-<h3>
-<a id="原因" class="anchor" href="#%E5%8E%9F%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>原因:</h3>
-
-<p>对于大部分想作者这样的电子爱好者来说，专业的PCB设计软件（altium designer，eaglePCB）都很难上手，而且它们的大部分功能都用不到，所以我写了这样一个软件。 </p>
-
-<h3>
-<a id="功能" class="anchor" href="#%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>功能：</h3>
-
-<p>创建PCB文件（json格式）。 
-导入，导出至云端或本地。 
-创建，编辑，删除元件。 </p>
-
-<h1>
-<a id="暂且就这么多了end--" class="anchor" href="#%E6%9A%82%E4%B8%94%E5%B0%B1%E8%BF%99%E4%B9%88%E5%A4%9A%E4%BA%86end--" aria-hidden="true"><span class="octicon octicon-link"></span></a>暂且就这么多了，END ：-）</h1>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Pcbmaker maintained by <a href="https://github.com/fry95116">fry95116</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
-</html>
+<script src="./js/Element.js"></script>
+<script src="./js/PCBmaker.js"></script>
+<script src="./js/index.js"></script>
