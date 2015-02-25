@@ -1,10 +1,18 @@
 $(document).ready(function(){
-  $('#elementKind>ul').hoverAccordion();
+	$('#elementKind>ul').hoverAccordion();
+	$('#elementKind').perfectScrollbar();
+	$('#elementKind>ul>li').mouseover(
+		function(){
+			console.log('t');
+			$('#elementKind').perfectScrollbar('update');
+		}
+	);
 });
 
 
 function onReSize()
 {
+	$('#elementKind').perfectScrollbar('update');
 	$('#main').width($(window).width());
 	$('#main').height($(window).height());
 	if(pcb)
