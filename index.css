@@ -10,6 +10,7 @@
 
 #elementKind
 {
+	overflow:hidden;
 	float:left;
 	width:13%;
 	height:100%;
@@ -19,6 +20,7 @@
 
 #pad
 {
+	overflow:hidden;
 	position:relative;
 	float:left;
 	width:70%;
@@ -40,6 +42,7 @@
 }
 #elementList
 {
+	overflow:hidden;
 	position:relative;
 	/*不加这一条，在chrome下overflow:auto工作不正常*/
 	float:left;

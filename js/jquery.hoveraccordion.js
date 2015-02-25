@@ -1,16 +1,4 @@
-// /**
- * HoverAccordion - jQuery plugin for intuitively opening accordions and menus
- *
- * Copyright (c) 2008-2010 Bernd Matzner (http://matznermatzner.de/en/bernd)
- *
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- * Version: 0.9.2
- *
- * Requires jQuery 1.4.4 or higher
- */
+
 (function ($) {
     'use strict';
 

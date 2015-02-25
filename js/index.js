@@ -1,5 +1,5 @@
 $(document).ready(function(){
-   $($('#elementKind ul')[0]).hoverAccordion();
+  $('#elementKind>ul').hoverAccordion();
 });
 
 
