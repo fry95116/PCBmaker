@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 	$('#elementKind>ul').hoverAccordion();
 	$('#elementKind').perfectScrollbar();
 	$('#elementKind>ul>li').mouseover(
@@ -7,9 +7,15 @@ $(document).ready(function(){
 			$('#elementKind').perfectScrollbar('update');
 		}
 	);
+});*/
+$(document).ready(function(){
+	$('#elementKind').perfectScrollbar();
+	$('#elementKind>ul>li').click(
+		function(){
+			$(this).find('li').slideToggle();
+		}
+	);
 });
-
-
 function onReSize()
 {
 	$('#elementKind').perfectScrollbar('update');
