@@ -33,12 +33,12 @@
 
 #state
 {
-    position:absolute;
-    right:0px;
-    top:0px;
-    width:40px;
-    height:40px;
-    background: #003366;
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:40px;
+	height:40px;
+	background: #003366;
 }
 #elementList
 {
@@ -53,10 +53,25 @@
 
 .sub_item
 {
+	position: relative;
 	font-size:1.5em;
 	font-weight:normal;
 	padding:15px;
 	color: white;
+}
+.sub_item>img
+{
+	display:none;
+	position:absolute;
+	top:0;
+	bottom:0;
+	margin:auto;
+	right:20px;
+	transition:transform 0.5s ease-in-out;
+}
+.sub_item_rotate
+{
+	transform:rotate(90deg);
 }
 
 li ul li
@@ -65,42 +80,43 @@ li ul li
 	font-weight:lighter;
 	color: white;
 	padding:10px 0px 10px 40px;
-	background: #03a9f4;
+	background-color: #03a9f4;
+	transition:background-color 0.3s ease-in-out,padding-left 0.3s ease-in-out;
 }
 
 ul
 {
-  list-style:none;
-  padding-left:0px;
+	list-style:none;
+	padding-left:0px;
 }
 
 li ul li:hover
 {
 	font-weight:lighter;
-	background:#b3e5fc;
+	background-color:#b3e5fc;
 	color:white;
-	padding:10px 0px 10px 25px;
+	padding:10px 0px 10px 20px;
 }
 
 .message
 {
-  display: none;
-  position: absolute;
-  padding:16px 30px;
-  color:white;
-  left:0px;
-  top:0px;
-  background-color:rgb(62,0,208);
-  box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	display: none;
+	position: absolute;
+	padding:16px 30px;
+	color:white;
+	left:0px;
+	top:0px;
+	background-color:rgb(62,0,208);
+	box-shadow:5px 5px 5px rgba(0,0,0,0.5);
 }
 
 
 .message h2
 {
-  margin-left:0px;
+	margin-left:0px;
 }
 
 .message p
 {
-  margin-left:20px;
+	margin-left:20px;
 }

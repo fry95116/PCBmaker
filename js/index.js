@@ -10,9 +10,12 @@
 });*/
 $(document).ready(function(){
 	$('#elementKind').perfectScrollbar();
-	$('#elementKind>ul>li').click(
+	$('.sub_item').click(
 		function(){
-			$(this).find('li').slideToggle();
+			$(this).find('img').toggleClass('sub_item_rotate');
+			$(this).parent().find('li').slideToggle();
+			$(this).parent().siblings().find('li').slideUp(function(){$('#elementKind').perfectScrollbar('update');});
+			$(this).parent().siblings().find('img').removeClass('sub_item_rotate')
 		}
 	);
 });
@@ -43,7 +46,10 @@ function onReSize()
 		$('#canvas').css('top','0px');
 	}
 	pcb.refresh();
-    document.getElementById('state').innerHTML=''+pcb.state;
+	$('.sub_item').each(function(){
+		$(this).find('img').height($(this).height()).css('display','block');
+	});
+	document.getElementById('state').innerHTML=''+pcb.state;
 }
 
 
