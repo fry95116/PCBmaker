@@ -10,9 +10,13 @@
 });*/
 $(document).ready(function(){
 	$('#sidebar .panel').perfectScrollbar();
+	$('#pad').perfectScrollbar();
 	$('.tab').click(function(e){
-		$('#sidebar .panel').hide().eq($(this).index()).show();
+		$('.panel').hide().eq($(this).index()).show();
 		$(this).addClass('tab_selected').siblings().removeClass('tab_selected');
+	});
+	$('.sub_item').each(function(){
+		$(this).find('img').height($(this).height()).css('display','block');
 	});
 	$('.sub_item').click(function(){
 		$(this).find('img').toggleClass('sub_item_rotate');
@@ -22,12 +26,15 @@ $(document).ready(function(){
 		$(this).parent().siblings().find('ul').slideUp(function(){$('#sidebar .panel').perfectScrollbar('update');});
 		$(this).parent().siblings().find('.sub_item>img').removeClass('sub_item_rotate');
 	});
+
+
 });
 function onReSize()
 {
 	$('#sidebar .panel').perfectScrollbar('update');
 	$('#main').width($(window).width());
 	$('#main').height($(window).height());
+
 	if(pcb)
 	{
 		$('#canvas').attr('width',pcb.toCanvas(pcb.width)+'px');
@@ -49,25 +56,18 @@ function onReSize()
 	{
 		$('#canvas').css('top','0px');
 	}
+	$('#pad').perfectScrollbar('update');
 	pcb.refresh();
 	$('.sub_item').each(function(){
 		$(this).find('img').height($(this).height()).css('display','block');
 	});
-	document.getElementById('state').innerHTML=''+pcb.state;
 }
 
 
-//var vector=createVector();
 var canvas=document.getElementById('canvas');
 var con=canvas.getContext('2d');
-var pcb=new PCBmodel(con,20,15,15);
-$('#new').click(function()
-{
-    var w=$('#create');
-    if(w.css('display')==='none') w.css('display','block');
-    else w.css('display','none');
+var pcb=new PCBmodel(con,20,60,60);
 
-});
 canvas.onclick=function(e)
 {
   console.log('pos:'+pcb.toLocal(e.offsetX||e.layerX)+','+pcb.toLocal(e.offsetY||e.layerY));

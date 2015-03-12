@@ -8,22 +8,15 @@
 	font-family: "Microsoft YaHei" ! important;
 }
 
-#sidebar
+.panel
 {
 	float:left;
-	width:18%;
-	height:100%;
-}
-
-#sidebar .panel
-{
-	float:left;
-	width:85%;
+	width:16%;
 	height:100%;
 	overflow:hidden;
 	position:relative;
-	z-index: 1;
-	box-shadow:3px 3px 3px rgba(0,0,0,0.5);
+	z-index: 2;
+	box-shadow:3px 3px 4px rgba(0,0,0,0.5);
 }
 
 #panel1
@@ -107,18 +100,21 @@ ul
 #tabs
 {
 	float:left;
-	position:relative;
+	position:absolute;
+	left:16%;
+	top:0px;
 	height:100%;
-	width:15%;
+	width:3%;
 	margin:0px;
 }
 .tab
 {
+	z-index:1;
 	/*z-index不要设为负数，否则事件抓不到*/
 	position:relative;
 	width:100%;
 	height:15%;
-	box-shadow:3px 3px 3px rgba(0,0,0,0.5);
+	box-shadow:3px 3px 4px rgba(0,0,0,0.5);
 	margin-top:5px;
 	margin-bottom:-10px;
 	border-top-right-radius:14px;
@@ -127,7 +123,7 @@ ul
 
 #tab1
 {
-	background-color: #0288d1;
+	background-color:#0288d1;
 }
 
 #tab2
@@ -137,7 +133,7 @@ ul
 
 .tab_selected
 {
-	z-index: 1;
+	z-index: 2;
 }
 
 
@@ -145,13 +141,15 @@ ul
 {
 	overflow:hidden;
 	position:relative;
+	background-color:#fffaef;
 	float:left;
-	width:82%;
+	width:84%;
 	height:100%;
 }
 #canvas
 {
 	position:absolute;
+	background-color:#fffaef;
 }
 
 #state

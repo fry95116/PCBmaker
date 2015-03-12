@@ -36,8 +36,6 @@ function PCBmodel(context,scale,w,h)
 	this.drawRange=function()
 	{
 		context.save();
-		context.fillStyle='rgb(255,255,255)';
-		context.fillRect(0,0,this.toCanvas(this.width-1),this.toCanvas(this.height-1));
 		context.strokeRect(0,0,this.toCanvas(this.width-1),this.toCanvas(this.height-1));
 		context.restore();
 	}
