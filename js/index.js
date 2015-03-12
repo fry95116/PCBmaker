@@ -34,7 +34,6 @@ function onReSize()
 	$('#sidebar .panel').perfectScrollbar('update');
 	$('#main').width($(window).width());
 	$('#main').height($(window).height());
-
 	if(pcb)
 	{
 		$('#canvas').attr('width',pcb.toCanvas(pcb.width)+'px');
@@ -61,6 +60,7 @@ function onReSize()
 	$('.sub_item').each(function(){
 		$(this).find('img').height($(this).height()).css('display','block');
 	});
+	$('#tabs').css('left',$('.panel').width()+'px');
 }
 
 
