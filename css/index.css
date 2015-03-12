@@ -8,47 +8,33 @@
 	font-family: "Microsoft YaHei" ! important;
 }
 
-#elementKind
+#sidebar
 {
-	overflow:hidden;
 	float:left;
-	width:13%;
+	width:18%;
 	height:100%;
-	position:relative;	/*不加这一条，在chrome下overflow:auto工作不正常*/
-	background: #0288d1;
 }
 
-#pad
+#sidebar .panel
 {
+	float:left;
+	width:85%;
+	height:100%;
 	overflow:hidden;
 	position:relative;
-	float:left;
-	width:70%;
-	height:100%;
-}
-#canvas
-{
-	position:absolute;
+	z-index: 1;
+	box-shadow:3px 3px 3px rgba(0,0,0,0.5);
 }
 
-#state
+#panel1
 {
-	position:absolute;
-	right:0px;
-	top:0px;
-	width:40px;
-	height:40px;
-	background: #003366;
+	background-color: #0288d1;
 }
-#elementList
+
+#panel2
 {
-	overflow:hidden;
-	position:relative;
-	/*不加这一条，在chrome下overflow:auto工作不正常*/
-	float:left;
-	background:rgb(37,142,205);
-	width:17%;
-	height:100%;
+	display:none;
+	background-color:#689f38;
 }
 
 .sub_item
@@ -73,15 +59,26 @@
 {
 	transform:rotate(-90deg);
 }
-
-li ul li
+.sub_item+ul
 {
 	display:none;
+}
+.sub_item+ul>li
+{
 	font-weight:lighter;
 	color: white;
 	padding:10px 0px 10px 40px;
-	background-color: #03a9f4;
 	transition:background-color 0.3s ease-in-out,padding-left 0.3s ease-in-out;
+}
+
+#panel1 .sub_item+ul>li
+{
+	background-color: #03a9f4;
+}
+
+#panel2 .sub_item+ul>li
+{
+	background-color: #8bc34a;
 }
 
 ul
@@ -90,12 +87,81 @@ ul
 	padding-left:0px;
 }
 
-li ul li:hover
+.sub_item+ul>li:hover
 {
 	font-weight:lighter;
-	background-color:#b3e5fc;
 	color:white;
 	padding:10px 0px 10px 20px;
+}
+
+#panel1 .sub_item+ul>li:hover
+{
+	background-color:#81d4fa;
+}
+
+#panel2 .sub_item+ul>li:hover
+{
+	background-color:#c5e1a5;
+}
+
+#tabs
+{
+	float:left;
+	position:relative;
+	height:100%;
+	width:15%;
+	margin:0px;
+}
+.tab
+{
+	/*z-index不要设为负数，否则事件抓不到*/
+	position:relative;
+	width:100%;
+	height:15%;
+	box-shadow:3px 3px 3px rgba(0,0,0,0.5);
+	margin-top:5px;
+	margin-bottom:-10px;
+	border-top-right-radius:14px;
+	border-bottom-right-radius:14px;
+}
+
+#tab1
+{
+	background-color: #0288d1;
+}
+
+#tab2
+{
+	background-color:#689f38;
+}
+
+.tab_selected
+{
+	z-index: 1;
+}
+
+
+#pad
+{
+	overflow:hidden;
+	position:relative;
+	float:left;
+	width:82%;
+	height:100%;
+}
+#canvas
+{
+	position:absolute;
+}
+
+#state
+{
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:40px;
+	height:40px;
+	background-color: #003366;
 }
 
 .message
