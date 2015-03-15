@@ -6,7 +6,7 @@
 	min-width:1024px;
 	min-height:600px;
 	font-family: "Microsoft YaHei" ! important;
-	background-color:#fefefe;
+	background-color:#f1f1f1;
 }
 
 .shadow
@@ -60,6 +60,12 @@
 	margin:auto;
 	display:none;
 }
+#meun_elementkind>li>img
+{
+	float: right; 
+	margin-right:10px;
+}
+
 .tab
 {
 	position:relative;
@@ -96,11 +102,7 @@
 .sub_item>img
 {
 	display:none;
-	position:absolute;
-	top:0;
-	bottom:0;
-	margin:auto;
-	right:20px;
+	float:right;
 	transition:transform 0.5s ease-in-out;
 }
 .sub_item_rotate
@@ -151,12 +153,22 @@ ul
 {
 	background-color:#c5e1a5;
 }
+#panel1 .sub_item+ul>.focus
+{
+	/*list-style: circle inside;*/
+	border-right:7px solid #b3e5fc;
+}
+
+#panel2 .sub_item+ul>.focus
+{
+	/*list-style: circle inside;*/
+	border-right:7px solid #cdecd8;
+}
 
 #pad
 {
 	overflow:hidden;
 	position:relative;
-
 	width:82%;
 	height:100%;
 }
