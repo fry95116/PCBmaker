@@ -8,75 +8,144 @@
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.structure.css"/>
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.theme.css"/>
-</head>
+<link rel="stylesheet" href="./css/bootstrap.css"></head>
 <body style="margin:0px;">
 <div id="main">
 	<div id="sidebar" class="shadow">
-		<div id="panel1" class ="panel shadow selected">
-				<ul>
-					<li>
-						<div class="sub_item">
-							文件
-							<img src ="./img/item_icon.png" ></div>
-						<ul id="meun_file">
-							<li>
-								<a herf='#new'>新建</a>
-							</li>
-							<li>打开</li>
-							<li>保存</li>
-						</ul>
-					</li>
-					<li>
-						<div class="sub_item">
-							编辑
-							<img src ="./img/item_icon.png" ></div>
-						<ul id="meun_edit">
-							<li>前进</li>
-							<li>后退</li>
-							<li>页面设置</li>
-						</ul>
-					</li>
-					<li>
-						<div class="sub_item">
-							元件
-							<img src ="./img/item_icon.png" ></div>
-						<ul id='meun_elementkind'>
-						</ul>
-					</li>
-				</ul>
+		<div id="panel1" class ="sidebar-panel shadow selected">
+			<ul>
+				<li>
+					<div class="sub_item">
+						文件
+						<img src ="./img/item_icon.png" ></div>
+					<ul id="meun_file">
+						<li id="new_file">新建</li>
+						<li  id="open_file">
+							<input id='files' type="file" class="mask"/>
+							打开
+						</li>
+						<li id='save_file'>保存</li>
+					</ul>
+				</li>
+				<li>
+					<div class="sub_item">
+						编辑
+						<img src ="./img/item_icon.png" ></div>
+					<ul id="meun_edit">
+						<li>前进</li>
+						<li>后退</li>
+						<li>页面设置</li>
+					</ul>
+				</li>
+				<li>
+					<div class="sub_item">
+						元件
+						<img src ="./img/item_icon.png" ></div>
+					<ul id='meun_elementkind'></ul>
+				</li>
+			</ul>
 		</div>
-		<div id="panel2" class ="panel shadow">
+		<div id="panel2" class ="sidebar-panel shadow">
+			<ul  id="meun_existelements"></ul>
 		</div>
 		<ul id="tabs">
-			<li id="tab1" class="tab selected"><img src ="./img/tab_settings.png" ></li>
-			<li id="tab2" class="tab"><img src ="./img/tab_elements.png" ></li>
+			<li id="tab1" class="tab selected">
+				<img src ="./img/tab_settings.png" ></li>
+			<li id="tab2" class="tab">
+				<img src ="./img/tab_elements.png" ></li>
 		</ul>
 	</div>
 	<div id="pad">
-		<canvas id="canvas">Canvas not supported</canvas>
-		<div id='messagebar' style="position: absolute;left: 100px;top: 100px;box-shadow: 2px 2px 3px rgba(0,0,0,0.5);background-color: #fefefe;border: 2px solid #e0e0e0;padding:2em 3em;">
-			<div style=""></div>
-			<div style="position: absolute;right: 15px;top: -22px;width: 44px;height: 44px;background-color: #e51c23;border-radius: 22px;box-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-				<img id='' src ="./img/new_file.png" style='width:100%;height:100%' >
-			</div>
-			<p style="margin-right:3em;">width:__________________</p>
-			<p>height:_________________</p>
-			<div style="text-align:center;line-height:30px;color:#fff;float:right;width:70px;height:30px;background-color:#5677fc;margin-top:1.5em;margin-right:-1em;border-radius: 4px;box-shadow: 1px 1px 2px rgba(0,0,0,0.5);">确定</siv>
+
+		<div id="msg_new_file" class="panel panel-default">
+			<form class="form-horizontal">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<div class="form-group">
+					<label for="width" class="col-sm-3 control-label">Width:</label>
+					<div class="col-sm-9">
+						<input type="number" class="form-control" min='0' id="width" name="width" placeholder="width"></div>
+				</div>
+				<div class="form-group">
+					<label for="height" class="col-sm-3 control-label">Height:</label>
+					<div class="col-sm-9">
+						<input type="number" class="form-control" min='0' id="height" name="height" placeholder="height"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2">
+						<button type="submit" class="btn btn-primary">确定</button>
+					</div>
+				</div>
+			</form>
 		</div>
+			<table id='control_pad'>
+				<tr>
+					<td></td>
+					<td><button id='con-btn-up' class="btn btn-default"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button></td>
+				</tr>
+				<tr>
+					<td><button id='con-btn-left' class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button></td>
+					<td><button id='con-btn-del' class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+					<td><button id='con-btn-right' class="btn btn-default"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button id='con-btn-down' class="btn btn-default"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></td>
+				</tr>
+			</table>
 	</div>
 </div>
 </body>
+<script type="text/templete" id='paper_template'>
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<div class="header"><img id='' src ="./img/file.png"></div>
+		<h4><%=name%></h4>
+		<hr>
+		<form class="form-horizontal panel panel-default">
+			<div class="form-group">
+				<label for="width" class="col-sm-3 control-label">Width:</label>
+				<div class="col-sm-9">
+					<input type="number" class="form-control" min='0' id="width" name="width" placeholder="width"  value="<%=width%>"></div>
+			</div>
+			<div class="form-group">
+				<label for="height" class="col-sm-3 control-label">Height:</label>
+				<div class="col-sm-9">
+					<input type="number" class="form-control" min='0' id="height" name="height" placeholder="height" value="<%=height%>"></div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary">确定</button>
+				</div>
+			</div>
+		</form>
+		<div class="canvas_group">
+			<canvas class="canvas_elements overlay">Canvas not supported</canvas>
+			<canvas class="canvas_bg">Canvas not supported</canvas>
+		</div>
+</script>
+<script type="text/templete" id='sub_item_template'>
+	<li class='<%=kind%>'>
+		<div class="sub_item">
+			<%=item%>
+			<img src ="./img/item_icon.png" ></div>
+		<ul></ul>
+	</li>
+</script>
 <!-- jquery -->
 <script src="./lib/jquery.js"></script>
 <script src="./lib/jquery-ui.js"></script>
 <script src='./lib/perfect-scrollbar.js'></script>
+<script src='./lib/jquery_ex_resize.js'></script>
+<script src='./lib/jquery.form.js'></script>
+<!--bootstrap-->
+<script src="./lib/bootstrap.js"></script>
 <!-- backbone -->
 <script src="./lib/underscore.js"></script>
 <script src="./lib/backbone.js"></script>
-<!-- view -->
-<script src="./js/view_control.js"></script>
 <!-- pcb -->
 <script src="./js/def_elements.js"></script>
 <script src="./js/elementkind.js"></script>
+<!-- view -->
+<script src="./js/view_control.js"></script>
 <!--<script src="./js/PCBmaker.js"></script>
-<script src="./js/index.js"></script>-->
+<script src="./js/index.js"></script>
+-->

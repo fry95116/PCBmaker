@@ -9,9 +9,33 @@
 	background-color:#f1f1f1;
 }
 
+.close
+{
+	position: absolute;
+	left: 10px;
+	top:10px;
+}
 .shadow
 {
 	box-shadow:3px 0px 3px rgba(0,0,0,0.5);
+}
+
+.mask
+{
+	filter:alpha(opacity=0);
+	opacity:0;
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+
+input
+
+#open
+{
+	position:relative;
 }
 
 #sidebar
@@ -24,7 +48,7 @@
 	border-top-right-radius: 6px;
 }
 
-.panel
+.sidebar-panel
 {
 	float:left;
 	width:84%;
@@ -121,6 +145,10 @@
 	transition:background-color 0.3s ease-in-out,padding-left 0.3s ease-in-out;
 }
 
+#open_file
+{
+	position: relative;
+}
 #panel1 .sub_item+ul>li
 {
 	background-color: #03a9f4;
@@ -156,13 +184,13 @@ ul
 #panel1 .sub_item+ul>.focus
 {
 	/*list-style: circle inside;*/
-	border-right:7px solid #b3e5fc;
+	border-left:7px solid #b3e5fc;
 }
 
 #panel2 .sub_item+ul>.focus
 {
 	/*list-style: circle inside;*/
-	border-right:7px solid #cdecd8;
+	border-left:7px solid #cdecd8;
 }
 
 #pad
@@ -172,8 +200,83 @@ ul
 	width:82%;
 	height:100%;
 }
-#canvas
+.paper
 {
 	position:absolute;
+	left:4%;
+	top:4%;
+	padding:3em;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	background-color: #fefefe;
 }
 
+.paper h1
+{
+	margin-top: 0px
+}
+
+.paper form
+{
+	z-index:2;
+	position: absolute;
+	right: 20px;
+	top: 25px;
+	padding: 20px;
+	display: none;
+}
+
+.paper .canvas_group
+{
+	position: relative;
+}
+.paper canvas.overlay
+{
+	position: absolute;
+	left:0px;
+	top:0px;
+}
+
+
+#msg_new_file
+{
+	display:none;
+	position: absolute;
+	z-index:10;
+	left: 150px;
+	top: 150px;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+	background-color: #fefefe;
+	padding:40px 20px 20px;
+}
+.header
+{
+	position: absolute;
+	right: 15px;
+	top: -22px;
+	width: 44px;
+	height: 44px;
+	background-color: #e84e40;
+	border-radius: 22px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.header img
+{
+	 width:100%;
+	 height:100%
+}
+
+#control_pad{
+	position:absolute;
+	right:10px;
+	bottom:10px;
+	z-index:10;
+}
+#control_pad button{
+	margin: 2px;
+}
+/*for perfectscrollbar*/
+.ps-scrollbar-x-rail,.ps-scrollbar-y-rail
+{
+z-index:20;	
+}
